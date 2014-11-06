@@ -32,7 +32,11 @@
   <body>
   	<ol>
     <?php foreach($rss as $item): ?>
-    		<li> <?php echo $item['title']; ?> </li>
+    		<li> <h3><?php echo $item['title']; ?> </h3></li>
+    		<li> <?php echo $item['description']; ?> </li>
+    		<li> <?php echo $item['author']; ?> </li>
+    		<li> <?php echo $item['pubDate']; ?> </li>
+    		<li> <?php echo $item['link']; ?> </li>
     <?php endforeach; ?>
 	</ol>
     
