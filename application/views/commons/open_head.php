@@ -19,6 +19,12 @@
     <!-- Optional bootstrap theme -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
     
+    <style type="text/css">
+    	body {
+		  padding-top: 50px;
+		}
+    </style>
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
