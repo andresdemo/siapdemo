@@ -2,6 +2,12 @@
 
 class Test extends CI_Controller {
 
+	public function __construct()
+    {
+    	parent::__construct();
+		$this->load->database();
+    }
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -19,8 +25,11 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('Canal_model');
+		$canal = $this->Canal_model->get_canal(1);
+		
 		$this->load->library('rssparser');                          // load library
-		$this->rssparser->set_feed_url('http://www.eluniversal.com.mx/rss/computo.xml');  // get feed
+		$this->rssparser->set_feed_url($canal->link);  // get feed
 		$this->rssparser->set_cache_life(30);                       // Set cache life time in minutes
 		$rss = $this->rssparser->getFeed(50); 
 		
