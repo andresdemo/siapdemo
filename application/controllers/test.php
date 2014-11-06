@@ -6,7 +6,10 @@ class Test extends CI_Controller {
     {
     	parent::__construct();
 		$this->load->database();
+		$this->load->helper('url');
+		$this->load->library('session');
     }
+	
 
 	/**
 	 * Index Page for this controller.
@@ -37,7 +40,12 @@ class Test extends CI_Controller {
 			'rss' => $rss
 		);
 		
+		$this->load->view('commons/open_head');
+		//$this->load->view('test_head');
+		$this->load->view('commons/head_to_body');
 		$this->load->view('test_view',$data);
+		$this->load->view('commons/close_body');
+		
 	}
 }
 
