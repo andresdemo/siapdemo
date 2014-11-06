@@ -44,10 +44,10 @@ class Sync extends CI_Controller {
 		foreach($canales as $canal) {
 		    $rss = $this->rssparser->set_feed_url($canal->link)->set_cache_life(30)->getFeed(50);
 		    foreach($rss as $item) {
-		        $count_news++;
+		        $count_news++; // Cuenta las noticias recorridas
 		        $noticia = $this->Noticia_model->get_noticia_by_link($item['link']);
 		        if(!$noticia) {
-		            $count_add++;
+		            $count_add++; // Cuentas las nuevas noticias
 		            $noticia = array(
 		                'titulo' => $item['title'],
 		                'descripcion' => $item['description'],
@@ -66,11 +66,11 @@ class Sync extends CI_Controller {
          );
 		
 		//Se cargan los templates, tanto el template head y body son opcionales
-		$this->load->view('templates/open_head',$user);
+		$this->load->view('commons/open_head',$user);
 		//$this->load->view('viewname_head');
-		$this->load->view('templates/head_to_body');
+		$this->load->view('commons/head_to_body');
 		$this->load->view('sync/sync_body',$data);
-		$this->load->view('templates/close_body');
+		$this->load->view('commons/close_body');
 		
 		
 	}
