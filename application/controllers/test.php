@@ -19,6 +19,11 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->library('rssparser');                          // load library
+		$this->rssparser->set_feed_url('http://www.eluniversal.com.mx/rss/computo.xml');  // get feed
+		$this->rssparser->set_cache_life(30);                       // Set cache life time in minutes
+		$rss = $this->rssparser->getFeed(50); 
+		
 		$this->load->view('test_view');
 	}
 }
