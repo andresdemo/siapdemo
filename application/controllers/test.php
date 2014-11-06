@@ -24,7 +24,11 @@ class Test extends CI_Controller {
 		$this->rssparser->set_cache_life(30);                       // Set cache life time in minutes
 		$rss = $this->rssparser->getFeed(50); 
 		
-		$this->load->view('test_view');
+		$data = array(
+			'rss' => $rss
+		);
+		
+		$this->load->view('test_view',$data);
 	}
 }
 
